@@ -1,0 +1,18 @@
+{
+  "members": [
+    {
+      "id": "1245S",
+      "cin": 124578,
+      "name": "Imen",
+      "type": "teacher",
+      "createdDate": "12/12/2026"
+    },
+    {
+      "id": "1245M",
+      "cin": 124578,
+      "name": "Mariem",
+      "type": "teacher",
+      "createdDate": "12/12/2026"
+    }
+  ]
+}
