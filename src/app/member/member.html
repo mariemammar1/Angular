@@ -18,17 +18,19 @@
     <th mat-header-cell *matHeaderCellDef>Type</th>
     <td mat-cell *matCellDef="let member">{{ member.type }}</td>
   </ng-container>
-  <ng-container matColumnDef="createdDate">
+  <ng-container matColumnDef="created_date">
     <th mat-header-cell *matHeaderCellDef>Created Date</th>
     <td mat-cell *matCellDef="let member">
-      {{ member.createdDate | date:'short' }}
+      {{ member.created_date | date:'short' }}
     </td>
   </ng-container>
   <ng-container matColumnDef="5">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let member">
+    <td mat-cell *matCellDef="let element">
       <mat-icon>edit</mat-icon>
-      <mat-icon>delete</mat-icon>
+      <button (click)="deleteMember(element.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
