@@ -19,4 +19,17 @@ export class MemberService {
   deleteMember(id: string) {
     return this.http.delete<void>(`http://localhost:3000/members/${id}`);
   }
+  getMemberById(id: string) {
+    return this.http.get<MemberModel>(`http://localhost:3000/members/${id}`);
+  }
+  //syntaxe put
+  updateMember(id: string, member: MemberModel) {
+    return this.http.put<void>(`http://localhost:3000/members/${id}`, member);
+  }
+  //syntaxe patch
+  updateMember1(id: string, NewName: string) {
+    return this.http.put<void>(`http://localhost:3000/members/${id}`, {
+      name: NewName,
+    });
+  }
 }

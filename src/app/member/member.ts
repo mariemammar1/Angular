@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MemberService } from '../../service/member-service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
+import { Popup } from '../popup/popup';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-member',
@@ -16,6 +18,7 @@ export class Member implements OnInit {
   constructor(
     private MS: MemberService,
     private router: Router,
+    private Dialog: MatDialog,
   ) {} //le constructeur de la classe Member. Il utilise l'injection de dépendance pour obtenir une instance de MemberService, qui est un service Angular permettant d'effectuer des opérations liées aux membres. Cela permet au composant de communiquer avec le service pour récupérer ou envoyer des données liées aux membres.
   displayedColumns: string[] = [
     'id',
@@ -37,11 +40,16 @@ export class Member implements OnInit {
     });
   }
   deleteMember(id: string) {
-    this.MS.deleteMember(id).subscribe(() => {
-      this.router.navigate(['']); //redirection vers la page des membres après la suppression
-      console.log('Member deleted successfully');
-      this.dataSource = this.dataSource.filter((member) => member.id !== id); //mise à jour de la liste des membres après la suppression
+    //ouvrir la boite lancé par le click sur delete
+    let dialogRef = this.Dialog.open(Popup, {});
+    //attendre le click sur le bouton de confirmation
+    dialogRef.afterClosed().subscribe((x) => {
+      if (x) {
+        this.MS.deleteMember(id).subscribe(() => {
+          this.ngOnInit(); //après la suppression d'un membre, la méthode ngOnInit() est appelée pour rafraîchir les données affichées dans le composant. Cela permet de mettre à jour l'affichage du tableau des membres après la suppression d'un membre.
+        });
+      }
+      //si click=confirm =>delete sinon rien
     });
   }
-  //flex layout demos (aspect responsive)
 }

@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MemberService } from '../../service/member-service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-member-form',
   imports: [
@@ -21,6 +21,7 @@ import { Router } from '@angular/router';
 })
 export class MemberForm implements OnInit {
   form!: FormGroup;
+  idCourant!: string;
   //!pour l'initiatisation
   //form group sert pour envoyer les données du html vers le ts
   //injection de dépendance
@@ -30,21 +31,50 @@ export class MemberForm implements OnInit {
   constructor(
     private memberService: MemberService,
     private router: Router,
+    private route: ActivatedRoute,
+
+    //pour recupere la route active
   ) {}
   ngOnInit() {
-    this.form = new FormGroup({
-      cin: new FormControl(null),
-      name: new FormControl(null),
-      type: new FormControl(null),
-      created_date: new FormControl(null),
-    });
+    //recupere la route active
+    //chercher id
+    //si id existe =>getmemeber=> edit sinon add(create)
+    //caputre d'image fragmenter et id rechercher dans la route active
+
+    this.idCourant = this.route.snapshot.params['id'];
+    if (this.idCourant) {
+      this.memberService.getMemberById(this.idCourant).subscribe((a) => {
+        this.form = new FormGroup({
+          cin: new FormControl(a.cin),
+          name: new FormControl(a.name),
+          type: new FormControl(a.type),
+          created_date: new FormControl(a.created_date),
+        });
+      });
+    } else {
+      this.form = new FormGroup({
+        cin: new FormControl(null),
+        name: new FormControl(null),
+        type: new FormControl(null),
+        created_date: new FormControl(null),
+      });
+    }
   }
   submit() {
     console.log(this.form.value);
-    this.memberService.AddMember(this.form.value).subscribe(() => {
-      //parametre vide car je n'attends pas de données de retour car void
+    if (this.idCourant) {
+      this.memberService
+        .updateMember(this.idCourant, this.form.value)
+        .subscribe(() => {
+          this.router.navigate(['']); //redirection vers la page des membres après la modification n'a pas de /
+          console.log('Member updated successfully');
+        });
+    } else {
+      this.memberService.AddMember(this.form.value).subscribe(() => {
+        //parametre vide car je n'attends pas de données de retour car void
       this.router.navigate(['']); //redirection vers la page des membres après l'ajout n'a pas de /
       console.log('Member added successfully');
     });
   }
+}
 }

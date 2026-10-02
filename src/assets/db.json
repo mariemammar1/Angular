@@ -1,18 +1,18 @@
 {
   "members": [
     {
-      "id": "1245M",
-      "cin": 124578,
-      "name": "Mariem",
-      "type": "teacher",
-      "created_date": "12/12/2026"
+      "cin": "11175264",
+      "name": "mariam",
+      "type": "etudiante",
+      "created_date": "10/12/2026",
+      "id": "wSpzyZYNGz4"
     },
     {
       "cin": "11175264",
       "name": "mariem",
       "type": "etudiante",
       "created_date": "10/12/2026",
-      "id": "wSpzyZYNGz4"
+      "id": "-iOfEo5d77A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
