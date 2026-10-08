@@ -1,0 +1,148 @@
+.member-form-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  margin-bottom: 26px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 24px;
+  color: #728098;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #2d68c4;
+}
+
+.back-link mat-icon {
+  width: 17px;
+  height: 17px;
+  font-size: 17px;
+}
+
+.section-kicker {
+  display: block;
+  color: #5579b5;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.25px;
+}
+
+h1 {
+  margin: 8px 0 7px;
+  color: #1a2638;
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: 680;
+  letter-spacing: -1.2px;
+}
+
+.page-heading > p {
+  margin: 0;
+  color: #8994a6;
+  font-size: 13px;
+}
+
+.form-card {
+  overflow: hidden;
+  border: 1px solid #e9edf3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(33 50 79 / 4%);
+}
+
+.form-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 28px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.form-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 12px;
+  background: #edf4ff;
+  color: #3269bf;
+}
+
+.form-card-heading h2 {
+  margin: 0 0 5px;
+  color: #26334a;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.form-card-heading p {
+  margin: 0;
+  color: #8994a6;
+  font-size: 11px;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+  padding: 27px 28px 10px;
+}
+
+.form-fields mat-form-field {
+  width: 100%;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 28px;
+  border-top: 1px solid #edf0f5;
+  background: #fcfdff;
+}
+
+.required-note {
+  color: #8c97a8;
+  font-size: 11px;
+}
+
+.form-footer button {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.form-footer button mat-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+@media (max-width: 620px) {
+  .form-fields {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 22px 18px 4px;
+  }
+
+  .form-card-heading {
+    padding: 20px 18px;
+  }
+
+  .form-footer {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 17px 18px;
+  }
+}

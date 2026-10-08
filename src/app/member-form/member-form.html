@@ -1,31 +1,53 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="cin" formControlName="cin" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="name" formControlName="name" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="type" formControlName="type" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input
-        matInput
-        placeholder="created_date"
-        formControlName="created_date"
-      />
-    </mat-form-field>
-  </p>
-  <button type="submit" mat-raised-button color="primary">submit</button>
-</form>
+<section class="member-form-page">
+  <header class="page-heading">
+    <a class="back-link" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Back to members</span>
+    </a>
+    <span class="section-kicker">PEOPLE & ACCESS</span>
+    <h1>{{ idCourant ? 'Edit member' : 'Add a member' }}</h1>
+    <p>Keep your laboratory directory accurate and up to date.</p>
+  </header>
+
+  @if (form) {
+    <form class="form-card" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-card-heading">
+        <span class="form-icon"><mat-icon>badge</mat-icon></span>
+        <div>
+          <h2>Member details</h2>
+          <p>Enter the member's identity and registration information.</p>
+        </div>
+      </div>
+
+      <div class="form-fields">
+        <mat-form-field appearance="outline">
+          <mat-label>National ID (CIN)</mat-label>
+          <input matInput placeholder="e.g. 12345678" formControlName="cin" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Full name</mat-label>
+          <input matInput placeholder="Enter full name" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Member type</mat-label>
+          <input matInput placeholder="e.g. Researcher" formControlName="type" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Created date</mat-label>
+          <input matInput placeholder="e.g. 2025-01-31" formControlName="created_date" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-footer">
+        <span class="required-note">Fields can be updated at any time.</span>
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon>{{ idCourant ? 'save' : 'person_add' }}</mat-icon>
+          {{ idCourant ? 'Save changes' : 'Add member' }}
+        </button>
+      </div>
+    </form>
+  }
+</section>

@@ -1,1 +1,64 @@
-<p>dashboard works!</p>
+<section class="dashboard-page">
+  <div class="welcome-panel">
+    <div class="welcome-copy">
+      <span class="section-kicker">YOUR LAB, AT A GLANCE</span>
+      <h1>A clearer view<br />of your laboratory.</h1>
+      <p>One calm place to manage your people, resources and knowledge.</p>
+      <a class="welcome-action" routerLink="/">
+        Open member directory
+        <mat-icon>arrow_forward</mat-icon>
+      </a>
+    </div>
+    <div class="welcome-art" aria-hidden="true">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="art-center"><mat-icon>science</mat-icon></div>
+      <span class="art-dot dot-one"></span>
+      <span class="art-dot dot-two"></span>
+      <span class="art-dot dot-three"></span>
+    </div>
+  </div>
+
+  <header class="section-heading">
+    <div>
+      <span class="section-kicker">QUICK ACCESS</span>
+      <h2>Explore your workspace</h2>
+    </div>
+    <p>Choose a section to continue.</p>
+  </header>
+
+  <div class="workspace-grid">
+    <a class="workspace-card" routerLink="/">
+      <span class="card-icon people-icon"><mat-icon>groups</mat-icon></span>
+      <span class="card-content">
+        <strong>Members</strong>
+        <small>Manage your laboratory directory</small>
+      </span>
+      <mat-icon class="card-arrow">arrow_forward</mat-icon>
+    </a>
+    <a class="workspace-card" routerLink="/tools">
+      <span class="card-icon tools-icon"><mat-icon>build</mat-icon></span>
+      <span class="card-content">
+        <strong>Tools</strong>
+        <small>Browse laboratory resources</small>
+      </span>
+      <mat-icon class="card-arrow">arrow_forward</mat-icon>
+    </a>
+    <a class="workspace-card" routerLink="/articles">
+      <span class="card-icon articles-icon"><mat-icon>article</mat-icon></span>
+      <span class="card-content">
+        <strong>Articles</strong>
+        <small>Visit the knowledge library</small>
+      </span>
+      <mat-icon class="card-arrow">arrow_forward</mat-icon>
+    </a>
+    <a class="workspace-card" routerLink="/events">
+      <span class="card-icon events-icon"><mat-icon>event</mat-icon></span>
+      <span class="card-content">
+        <strong>Events</strong>
+        <small>Keep up with what's happening</small>
+      </span>
+      <mat-icon class="card-arrow">arrow_forward</mat-icon>
+    </a>
+  </div>
+</section>

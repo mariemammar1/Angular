@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tools',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './tools.html',
   styleUrl: './tools.css',
 })

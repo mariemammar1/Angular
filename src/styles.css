@@ -1,4 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  min-height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #182230;
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.section-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-page-heading {
+  margin-bottom: 26px;
+}
+
+.section-page-heading .section-kicker {
+  color: #5579b5;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.25px;
+}
+
+.section-page-heading h1 {
+  margin: 8px 0 7px;
+  color: #1a2638;
+  font-size: clamp(28px, 3vw, 34px);
+  font-weight: 680;
+  letter-spacing: -1.2px;
+}
+
+.section-page-heading p {
+  margin: 0;
+  color: #8994a6;
+  font-size: 13px;
+}
+
+.section-empty-state {
+  display: grid;
+  min-height: 300px;
+  align-content: center;
+  justify-items: center;
+  padding: 32px;
+  border: 1px solid #e9edf3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(33 50 79 / 4%);
+  text-align: center;
+}
+
+.empty-state-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 12px;
+  place-items: center;
+  border-radius: 16px;
+  background: #edf4ff;
+  color: #4376c1;
+}
+
+.empty-state-icon mat-icon {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+}
+
+.section-empty-state h2 {
+  margin: 6px 0;
+  color: #26334a;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.section-empty-state p {
+  margin: 0;
+  color: #8994a6;
+  font-size: 12px;
+}

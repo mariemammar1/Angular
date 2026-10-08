@@ -1,0 +1,247 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.app-sidebar {
+  width: 252px;
+  padding: 24px 16px 18px;
+  border-right: 1px solid #e9edf4;
+  background: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px 28px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  background: #e9f2ff;
+  color: #2864c5;
+}
+
+.brand-mark mat-icon {
+  width: 23px;
+  height: 23px;
+  font-size: 23px;
+}
+
+.brand-copy,
+.sidebar-footer > span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.brand-copy strong {
+  color: #17243a;
+  font-size: 17px;
+  letter-spacing: -0.4px;
+}
+
+.brand-copy small,
+.sidebar-footer small {
+  color: #8994a7;
+  font-size: 11px;
+}
+
+.nav-caption {
+  padding: 10px 12px 9px;
+  color: #9aa4b4;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.primary-navigation {
+  padding-top: 0;
+}
+
+.primary-navigation a {
+  min-height: 46px;
+  margin: 3px 0;
+  border-radius: 10px;
+  color: #69768a;
+  font-size: 13px;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.primary-navigation a mat-icon {
+  margin-right: 13px;
+  color: #929db0;
+}
+
+.primary-navigation a.active-link {
+  background: #edf4ff;
+  color: #245db6;
+}
+
+.primary-navigation a.active-link mat-icon {
+  color: #2864c5;
+}
+
+.sidebar-footer {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 12px;
+  border: 1px solid #e9edf2;
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+
+.sidebar-footer strong {
+  color: #455267;
+  font-size: 11px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38b982;
+  box-shadow: 0 0 0 4px #e5f7ef;
+}
+
+.topbar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  height: 76px;
+  padding: 0 36px;
+  border-bottom: 1px solid #e9edf3;
+  background: rgb(255 255 255 / 94%);
+  color: #19263a;
+  backdrop-filter: blur(12px);
+}
+
+.menu-button {
+  display: none;
+  margin-right: 10px;
+  color: #526176;
+}
+
+.topbar-title {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+}
+
+.topbar-title strong {
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.topbar-eyebrow {
+  color: #919bad;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.today-label {
+  margin-right: 22px;
+  color: #8a95a6;
+  font-size: 12px;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 4px 0 10px;
+  border-radius: 12px;
+  color: #39465b;
+}
+
+.profile-button mat-icon {
+  color: #8c97a8;
+}
+
+.profile-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-avatar {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 10px;
+  background: #e8f0fc;
+  color: #3269bf;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.page-content {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 36px 40px 56px;
+}
+
+@media (max-width: 900px) {
+  .app-sidebar {
+    width: 230px;
+  }
+
+  .topbar {
+    padding: 0 24px;
+  }
+
+  .page-content {
+    padding: 30px 24px 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .topbar {
+    height: 66px;
+    padding: 0 15px;
+  }
+
+  .today-label {
+    display: none;
+  }
+
+  .profile-name,
+  .profile-button > mat-icon {
+    display: none;
+  }
+
+  .profile-button {
+    padding: 0;
+  }
+
+  .page-content {
+    padding: 24px 16px 36px;
+  }
+}
