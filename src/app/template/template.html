@@ -1,79 +1,74 @@
-<mat-sidenav-container class="app-shell">
-  <mat-sidenav
-    #drawer
-    class="app-sidebar"
-    [mode]="isMobile ? 'over' : 'side'"
-    [opened]="!isMobile"
-    [fixedInViewport]="isMobile"
-  >
-    <a class="brand" routerLink="/dashboard" (click)="closeDrawer(drawer)">
-      <span class="brand-mark"><mat-icon>science</mat-icon></span>
-      <span class="brand-copy">
-        <strong>Labspace</strong>
-        <small>Laboratory portal</small>
-      </span>
-    </a>
+<mat-sidenav-container class="app-shell" [class.login-mode]="isLoginPage">
+  @if (!isLoginPage) {
+    <mat-sidenav #drawer class="app-sidebar" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile"
+      [fixedInViewport]="isMobile">
+      <a class="brand" routerLink="/dashboard" (click)="closeDrawer()">
+        <span class="brand-mark"><mat-icon>science</mat-icon></span>
+        <span class="brand-copy">
+          <strong>Labspace</strong>
+          <small>Laboratory portal</small>
+        </span>
+      </a>
 
-    <div class="nav-caption">WORKSPACE</div>
-    <mat-nav-list class="primary-navigation">
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="closeDrawer(drawer)">
-        <mat-icon>space_dashboard</mat-icon><span>Overview</span>
-      </a>
-      <a mat-list-item routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" (click)="closeDrawer(drawer)">
-        <mat-icon>groups</mat-icon><span>Members</span>
-      </a>
-      <a mat-list-item routerLink="/tools" routerLinkActive="active-link" (click)="closeDrawer(drawer)">
-        <mat-icon>build</mat-icon><span>Tools</span>
-      </a>
-      <a mat-list-item routerLink="/articles" routerLinkActive="active-link" (click)="closeDrawer(drawer)">
-        <mat-icon>article</mat-icon><span>Articles</span>
-      </a>
-      <a mat-list-item routerLink="/events" routerLinkActive="active-link" (click)="closeDrawer(drawer)">
-        <mat-icon>event</mat-icon><span>Events</span>
-      </a>
-    </mat-nav-list>
+      <div class="nav-caption">WORKSPACE</div>
+      <mat-nav-list class="primary-navigation">
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="closeDrawer()">
+          <mat-icon>space_dashboard</mat-icon><span>Overview</span>
+        </a>
+        <a mat-list-item routerLink="/member" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+          (click)="closeDrawer()">
+          <mat-icon>groups</mat-icon><span>Members</span>
+        </a>
+        <a mat-list-item routerLink="/tools" routerLinkActive="active-link" (click)="closeDrawer()">
+          <mat-icon>build</mat-icon><span>Tools</span>
+        </a>
+        <a mat-list-item routerLink="/articles" routerLinkActive="active-link" (click)="closeDrawer()">
+          <mat-icon>article</mat-icon><span>Articles</span>
+        </a>
+        <a mat-list-item routerLink="/events" routerLinkActive="active-link" (click)="closeDrawer()">
+          <mat-icon>event</mat-icon><span>Events</span>
+        </a>
+      </mat-nav-list>
 
-    <div class="sidebar-footer">
-      <span class="status-indicator"></span>
-      <span><strong>Workspace online</strong><small>All systems ready</small></span>
-    </div>
-  </mat-sidenav>
+      <div class="sidebar-footer">
+        <span class="status-indicator"></span>
+        <span><strong>Workspace online</strong><small>All systems ready</small></span>
+      </div>
+    </mat-sidenav>
+  }
 
   <mat-sidenav-content>
-    <mat-toolbar class="topbar">
-      <button
-        type="button"
-        aria-label="Toggle navigation"
-        class="menu-button"
-        mat-icon-button
-        (click)="drawer.toggle()"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div class="topbar-title">
-        <span class="topbar-eyebrow">LABORATORY MANAGEMENT</span>
-        <strong>Workspace</strong>
-      </div>
-      <span class="topbar-spacer"></span>
-      <span class="today-label">Your lab, organized.</span>
-      <button [matMenuTriggerFor]="userMenu" class="profile-button" mat-button aria-label="Open profile menu">
-        <span class="profile-avatar">L</span>
-        <span class="profile-name">Lab Admin</span>
-        <mat-icon>expand_more</mat-icon>
-      </button>
-      <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-        <button mat-menu-item>
-          <mat-icon>account_box</mat-icon>
-          <span>Profile</span>
+    @if (!isLoginPage) {
+      <mat-toolbar class="topbar">
+        <button type="button" aria-label="Toggle navigation" class="menu-button" mat-icon-button
+          (click)="toggleDrawer()">
+          <mat-icon>menu</mat-icon>
         </button>
-        <button mat-menu-item>
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Logout</span>
+        <div class="topbar-title">
+          <span class="topbar-eyebrow">LABORATORY MANAGEMENT</span>
+          <strong>Workspace</strong>
+        </div>
+        <span class="topbar-spacer"></span>
+        <span class="today-label">Your lab, organized.</span>
+        <button [matMenuTriggerFor]="userMenu" class="profile-button" mat-button aria-label="Open profile menu">
+          <span class="profile-avatar">{{ userInitial }}</span>
+          <span class="profile-name">{{ userEmail }}</span>
+          <mat-icon>expand_more</mat-icon>
         </button>
-      </mat-menu>
-    </mat-toolbar>
+        <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar>
+    }
 
-    <main class="page-content">
+    <main [class.page-content]="!isLoginPage" [class.login-content]="isLoginPage">
       <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
